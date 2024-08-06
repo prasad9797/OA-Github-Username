@@ -1,0 +1,23 @@
+<label
+  >Username:
+  <input type="text" [(ngModel)]="searchTerm" (keyup.enter)="serach()"
+/></label>
+<button (click)="serach()">Search</button>
+<hr />
+<label>Filter: <input type="text" [(ngModel)]="filterTerm" /></label>
+<table>
+  <thead>
+    <tr>
+      <th>User ID</th>
+      <th>Username</th>
+      <th>Profile Url Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of searchResult | filterData : filterTerm">
+      <td>{{ user.id }}</td>
+      <td>{{ user.login }}</td>
+      <td>{{ user.url }}</td>
+    </tr>
+  </tbody>
+</table>
